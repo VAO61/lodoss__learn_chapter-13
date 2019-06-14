@@ -1,0 +1,41 @@
+.header {
+  &__head {
+    display: flex;
+    // flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 25px;
+    padding-bottom: $offset;
+  }
+  &__logo {
+    height: 47px;
+    // border: solid 1px red;
+  }
+
+  &__search {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    height: 35px;
+    width: 190px;
+    border: solid 1px $color-brand_shadow;
+
+    // border: solid 1px red;
+  }
+
+  &__input {
+    height: 100%;
+    width: 100%;
+    font-size: 1.1em;
+  }
+
+  &__btn {
+    font-size: 1.1em;
+    line-height: 1em;
+  }
+
+  &__nav {
+    width: 100%;
+    margin-bottom: $offset;
+  }
+}

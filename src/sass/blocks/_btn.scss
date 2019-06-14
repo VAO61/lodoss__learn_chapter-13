@@ -1,0 +1,21 @@
+.btn {
+  color: inherit;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+  padding: 10px;
+
+  &_brand {
+    background-color: $color-brand;
+    color: $color-sub-text;
+    text-transform: uppercase;
+    font-weight: bold;
+
+    &:hover,
+    &:focus {
+      border: none;
+      box-shadow: none;
+    }
+  }
+}
