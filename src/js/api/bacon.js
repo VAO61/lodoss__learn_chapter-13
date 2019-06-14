@@ -19,6 +19,10 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
   button.addEventListener('click', () => {
     let baconIpsumOutput = document.getElementById('someTestBlock');
+    // TODO: Находит, но не записывает (innerHTML)
+    // let baconIpsumOutput = document.getElementsByClassName('block-lorem__item');
+
+    console.log(baconIpsumOutput);
 
     getJSON(
       'https://baconipsum.com/api/?type=all-meat&paras=3&start-with-lorem=1&format=json',
