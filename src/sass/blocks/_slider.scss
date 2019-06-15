@@ -1,0 +1,44 @@
+.slider {
+  height: 315px;
+  width: 920px;
+  padding-left: $offset * 3;
+  padding-right: $offset * 3;
+  padding-top: $offset * 2;
+  padding-bottom: $offset * 2;
+  background-image: url('https://picsum.photos/1200/350?random=1');
+  // background-color: #000;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  margin-bottom: $offset * 2;
+
+  &__content {
+    overflow: hidden;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  &__title {
+    font-size: 6em;
+    color: $color-sub-brand;
+    margin-bottom: $offset;
+  }
+
+  &__desc {
+    font-size: 1.1em;
+    line-height: 1.3em;
+    max-width: 430px;
+    max-height: 3.9em;
+    color: $color-sub-text;
+    overflow-y: hidden;
+    white-space: pre-wrap;
+    text-overflow: ellipsis;
+  }
+
+  &__btn {
+    margin-top: $offset;
+  }
+}

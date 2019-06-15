@@ -1,0 +1,14 @@
+.input {
+  outline: none;
+  padding: 10px;
+  transition: box-shadow $time;
+
+  &:hover {
+    box-shadow: inset 1px 1px 8px 0px $color-brand_light;
+  }
+
+  &:focus {
+    box-shadow: inset 1px 1px 8px 0px $color-brand_light;
+    border: solid 1px $color-brand;
+  }
+}

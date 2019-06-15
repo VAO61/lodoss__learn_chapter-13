@@ -1,0 +1,25 @@
+.link {
+  // color: var(--color-link);
+  transition: color $time;
+
+  &:hover,
+  &:active,
+  &:focus {
+    // color: var(--color-link-hover);
+  }
+
+  &_tdn {
+    text-decoration: none;
+  }
+
+  &_title {
+    // color: $color-brand;
+    transition: color $time;
+
+    &:hover,
+    &:active,
+    &:focus {
+      // color: $color-brand_bright;
+    }
+  }
+}

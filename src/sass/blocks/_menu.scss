@@ -1,0 +1,17 @@
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  font-size: 1em;
+
+  &__item {
+    padding: $offset;
+    text-transform: uppercase;
+
+    &_current {
+      background-color: $color-sub-brand;
+      color: $color-sub-text;
+    }
+  }
+}

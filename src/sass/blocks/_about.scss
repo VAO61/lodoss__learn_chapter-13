@@ -1,0 +1,30 @@
+.about {
+  display: flex;
+  flex-wrap: wrap;
+
+  &__item {
+    flex-basis: 50%;
+
+    &:nth-child(2n + 1) {
+      padding-right: $offset / 2;
+
+      & .about-item__title {
+        &:before,
+        &:after {
+          background-color: $color-brand;
+        }
+      }
+    }
+
+    &:nth-child(2n) {
+      padding-left: $offset / 2;
+
+      & .about-item__title {
+        &:before,
+        &:after {
+          background-color: $color-sub-brand;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+.about-item {
+  &__title {
+    font-size: 1.1em;
+    line-height: 1.1em;
+    display: flex;
+    align-items: center;
+
+    &:before,
+    &:after {
+      height: 1.1em;
+    }
+
+    &:before {
+      content: '';
+      position: relative;
+      display: flex;
+      top: 0px;
+      width: 1.1em;
+      background-color: red;
+      margin-right: $offset;
+    }
+
+    &:after {
+      content: '';
+      position: relative;
+      display: flex;
+      top: 0px;
+      min-width: 1.1em;
+      flex-grow: 1;
+      background-color: red;
+      margin-left: $offset;
+    }
+  }
+
+  &__row {
+    // display: flex;
+  }
+
+  &__image {
+    // display: inline-block;
+  }
+}
