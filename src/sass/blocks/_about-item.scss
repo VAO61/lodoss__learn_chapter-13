@@ -33,10 +33,14 @@
   }
 
   &__row {
-    // display: flex;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-top: $offset;
   }
 
   &__image {
+    padding-right: $offset;
     // display: inline-block;
   }
 }

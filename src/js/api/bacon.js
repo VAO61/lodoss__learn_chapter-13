@@ -20,7 +20,7 @@ var getJSON = function(url, params, callbackSuccess, callbackError) {
   xhr.send();
 };
 
-const button = document.getElementById('baconButton');
+// const button = document.getElementById('baconButton');
 
 const getData = () => {
   // let baconIpsumOutput = document.getElementById('someTestBlock');
@@ -33,7 +33,7 @@ const getData = () => {
     'https://baconipsum.com/api/',
     {
       type: 'all-meat',
-      paras: 3,
+      paras: 4,
       'start-with-lorem': 1,
       format: 'json'
     },
@@ -41,13 +41,35 @@ const getData = () => {
       if (baconGoodness && baconGoodness.length > 0) {
         baconIpsumOutput.innerHTML = '';
         for (var i = 0; i < baconGoodness.length; i++) {
-          const div = document.createElement('div');
-          div.className = 'block-lorem__item';
+          const item = document.createElement('div');
+          item.className = 'about__item about-item';
+
+          const itemTitle = document.createElement('h3');
+          itemTitle.className = 'about-item__title';
+          itemTitle.innerHTML = 'Some lorem title';
+
+          const itemImgText = document.createElement('div');
+          itemImgText.className = 'about-item__row';
+
+          const itemImg = document.createElement('img');
+          itemImg.className = 'about-item__image';
+          itemImg.src = 'https://picsum.photos/140/140?random=1';
+          // TODO: random='N' | [i]
+
+          const itemDesc = document.createElement('div');
+          itemDesc.className = 'about-item__desc content';
+
           const p = document.createElement('p');
           p.innerHTML = baconGoodness[i];
-          div.appendChild(p);
-          // baconIpsumOutput.append('<p>' + baconGoodness[i] + '</p>');
-          baconIpsumOutput.appendChild(div);
+
+          item.appendChild(p);
+
+          item.appendChild(itemTitle);
+          item.appendChild(itemImgText);
+          itemImgText.appendChild(itemImg);
+          itemImgText.appendChild(itemDesc);
+          itemDesc.appendChild(p);
+          baconIpsumOutput.appendChild(item);
         }
       }
     },
@@ -57,7 +79,7 @@ const getData = () => {
   );
 };
 
-button.addEventListener('click', getData);
+// button.addEventListener('click', getData);
 
 document.addEventListener('DOMContentLoaded', getData);
 // });
