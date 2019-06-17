@@ -4,6 +4,7 @@
 
   &__item {
     flex-basis: 50%;
+    padding-bottom: $offset * 2;
 
     &:nth-child(2n + 1) {
       padding-right: $offset / 2;

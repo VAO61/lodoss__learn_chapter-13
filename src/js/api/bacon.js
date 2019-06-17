@@ -3,7 +3,6 @@ const stringParams = obj =>
     .map(key => `${key}=${obj[key]}`)
     .join('&');
 
-// document.addEventListener('DOMContentLoaded', function(event) {
 var getJSON = function(url, params, callbackSuccess, callbackError) {
   var xhr = new XMLHttpRequest();
   xhr.open('GET', `${url}?${stringParams(params)}`, true);
@@ -20,21 +19,16 @@ var getJSON = function(url, params, callbackSuccess, callbackError) {
   xhr.send();
 };
 
-// const button = document.getElementById('baconButton');
-
 const getData = () => {
-  // let baconIpsumOutput = document.getElementById('someTestBlock');
-  // TODO: Находит, но не записывает (innerHTML)
   let baconIpsumOutput = document.querySelector('.block-lorem');
-
-  // console.log(baconIpsumOutput);
 
   getJSON(
     'https://baconipsum.com/api/',
     {
-      type: 'all-meat',
+      type: 'meat-and-filler',
       paras: 4,
-      'start-with-lorem': 1,
+      'start-with-lorem': 5,
+      // sentences: 4,
       format: 'json'
     },
     function(baconGoodness) {
@@ -53,8 +47,7 @@ const getData = () => {
 
           const itemImg = document.createElement('img');
           itemImg.className = 'about-item__image';
-          itemImg.src = 'https://picsum.photos/140/140?random=1';
-          // TODO: random='N' | [i]
+          itemImg.src = 'https://picsum.photos/140/140?random=' + [i];
 
           const itemDesc = document.createElement('div');
           itemDesc.className = 'about-item__desc content';
@@ -79,9 +72,4 @@ const getData = () => {
   );
 };
 
-// button.addEventListener('click', getData);
-
 document.addEventListener('DOMContentLoaded', getData);
-// });
-
-// API не соответствует макету/формулировке задания!
