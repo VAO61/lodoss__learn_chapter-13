@@ -28,46 +28,54 @@ const getData = () => {
       type: 'meat-and-filler',
       paras: 4,
       'start-with-lorem': 5,
-      // sentences: 4,
       format: 'json'
     },
     function(baconGoodness) {
-      if (baconGoodness && baconGoodness.length > 0) {
-        baconIpsumOutput.innerHTML = '';
-        for (var i = 0; i < baconGoodness.length; i++) {
-          const item = document.createElement('div');
-          item.className = 'about__item about-item';
+      baconIpsumOutput.innerHTML = '';
 
-          const itemTitle = document.createElement('h3');
-          itemTitle.className = 'about-item__title';
-          itemTitle.innerHTML = 'Some lorem title';
+      console.log(typeof baconGoodness);
+      console.log(baconGoodness);
 
-          const itemImgText = document.createElement('div');
-          itemImgText.className = 'about-item__row';
+      // TODO: forEach и/или map()
+      // baconGoodness.forEach(i => {
+      for (var i = 0; i < baconGoodness.length; i++) {
+        // TODO: отрисовка в отдельной функции
+        const item = document.createElement('div');
+        item.className = 'about__item about-item';
 
-          const itemImg = document.createElement('img');
-          itemImg.className = 'about-item__image';
-          itemImg.src = 'https://picsum.photos/140/140?random=' + [i];
+        const itemTitle = document.createElement('h3');
+        itemTitle.className = 'about-item__title';
+        itemTitle.innerHTML = 'Some lorem title';
 
-          const itemDesc = document.createElement('div');
-          itemDesc.className = 'about-item__desc content';
+        const itemImgText = document.createElement('div');
+        itemImgText.className = 'about-item__row';
 
-          const p = document.createElement('p');
-          p.innerHTML = baconGoodness[i];
+        const itemImg = document.createElement('img');
+        itemImg.className = 'about-item__image';
+        // TODO: https://picsum.photos/v2/list
+        // TODO: массив объектов [{ ... },{ ... }, ...]
+        // TODO: https://picsum.photos/id/ ... id(key)->value ... /140/140
+        itemImg.src = 'https://picsum.photos/140/140?random=' + i;
 
-          item.appendChild(p);
+        const itemDesc = document.createElement('div');
+        itemDesc.className = 'about-item__desc content';
 
-          item.appendChild(itemTitle);
-          item.appendChild(itemImgText);
-          itemImgText.appendChild(itemImg);
-          itemImgText.appendChild(itemDesc);
-          itemDesc.appendChild(p);
-          baconIpsumOutput.appendChild(item);
-        }
+        const p = document.createElement('p');
+        p.innerHTML = baconGoodness[i];
+
+        item.appendChild(p);
+
+        item.appendChild(itemTitle);
+        item.appendChild(itemImgText);
+        itemImgText.appendChild(itemImg);
+        itemImgText.appendChild(itemDesc);
+        itemDesc.appendChild(p);
+        baconIpsumOutput.appendChild(item);
       }
+      // });
     },
     function(codeError) {
-      alert(`Error ${codeError}`);
+      console.error(`Error ${codeError}`);
     }
   );
 };
