@@ -1,3 +1,5 @@
+const picsum = require('./picsum.js');
+
 const stringParams = obj =>
   Object.keys(obj)
     .map(key => `${key}=${obj[key]}`)
@@ -33,8 +35,8 @@ const getData = () => {
     function(baconGoodness) {
       baconIpsumOutput.innerHTML = '';
 
-      console.log(typeof baconGoodness);
-      console.log(baconGoodness);
+      // console.log(typeof baconGoodness);
+      // console.log(baconGoodness);
 
       // TODO: forEach и/или map()
       // baconGoodness.forEach(i => {
@@ -49,6 +51,10 @@ const getData = () => {
 
         const itemImgText = document.createElement('div');
         itemImgText.className = 'about-item__row';
+
+        // getPicsumImages();
+        // const itemImgList = 'https://picsum.photos/v2/list';
+        // console.log(typeof itemImgList);
 
         const itemImg = document.createElement('img');
         itemImg.className = 'about-item__image';
