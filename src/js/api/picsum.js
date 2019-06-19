@@ -1,9 +1,11 @@
-// alert('aaaaaaaa');
+const stringParamsPicum = obj =>
+  Object.keys(obj).map(key => `${key}=${obj[key]}`);
 
-const getJSONPicsum = function(url, params, callbackSuccess, callbackError) {
+var getJSONPicsum = function(url, params, callbackSuccess, callbackError) {
   // var itemImgListUrl = 'https://picsum.photos/v2/list';
   var itemImgListRequest = new XMLHttpRequest();
-  itemImgListRequest.open('GET', itemImgListUrl);
+  // itemImgListRequest.open('GET', itemImgListUrl);
+  itemImgListRequest.open('GET', `${url}?${stringParamsPicum(params)}`, true);
   itemImgListRequest.responseType = 'json';
   itemImgListRequest.onload = function() {
     var status = itemImgListRequest.status;
@@ -13,25 +15,29 @@ const getJSONPicsum = function(url, params, callbackSuccess, callbackError) {
       callbackError(status);
     }
   };
-
   itemImgListRequest.send();
-
-  // console.log(getJSONPicsum);
-
-  const getDataPicsum = () => {
-    getJSONPicsum('https://picsum.photos/v2/list'),
-      {
-        // TODO: https://picsum.photos/id/`value`/140/140
-      },
-      function showImgUrl(jsonObj) {
-        var imgUrl = jsonObj[''];
-
-        for (var i = 0; imgUrl.length; i++) {
-          var test = imgUrl[i];
-
-          console.log(test);
-        }
-      };
-  };
+  // аксиус / fetch
 };
+
+// TODO: https://picsum.photos/id/`value`/140/140
+
+const getDataPicsum = () => {
+  // console.log(getJSONPicsum);
+  getJSONPicsum('https://picsum.photos/v2/list', { limit: 4 }, function(
+    jsonObj
+  ) {
+    console.log(jsonObj);
+    console.log(typeof jsonObj);
+    // var imgUrl = jsonObj[''];
+
+    for (var i = 0; jsonObj.length; i++) {
+      // var test = jsonObj[i];
+      // console.log(test + 'aaaaaaa');
+      console.log(jsonObj);
+    }
+  });
+};
+
+document.addEventListener('DOMContentLoaded', getDataPicsum);
+
 module.exports = getJSONPicsum;
