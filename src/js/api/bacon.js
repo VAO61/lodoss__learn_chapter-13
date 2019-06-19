@@ -1,5 +1,3 @@
-const picsum = require('./picsum.js');
-
 const stringParams = obj =>
   Object.keys(obj)
     .map(key => `${key}=${obj[key]}`)
@@ -24,66 +22,76 @@ var getJSON = function(url, params, callbackSuccess, callbackError) {
 const getData = () => {
   let baconIpsumOutput = document.querySelector('.block-lorem');
 
-  getJSON(
-    'https://baconipsum.com/api/',
-    {
-      type: 'meat-and-filler',
-      paras: 4,
-      'start-with-lorem': 5,
-      format: 'json'
-    },
-    function(baconGoodness) {
-      baconIpsumOutput.innerHTML = '';
+  getJSON('https://picsum.photos/v2/list', { limit: 4 }, imageList => {
+    const images = imageList.map(
+      item => `https://picsum.photos/id/${item.id}/140/140`
+    );
 
-      // console.log(typeof baconGoodness);
-      // console.log(baconGoodness);
+    console.log(images);
 
-      // TODO: forEach и/или map()
-      // baconGoodness.forEach(i => {
-      for (var i = 0; i < baconGoodness.length; i++) {
-        // TODO: отрисовка в отдельной функции
-        const item = document.createElement('div');
-        item.className = 'about__item about-item';
+    getJSON(
+      'https://baconipsum.com/api/',
+      {
+        type: 'meat-and-filler',
+        paras: 4,
+        'start-with-lorem': 5,
+        format: 'json'
+      },
+      function(baconGoodness) {
+        baconIpsumOutput.innerHTML = '';
 
-        const itemTitle = document.createElement('h3');
-        itemTitle.className = 'about-item__title';
-        itemTitle.innerHTML = 'Some lorem title';
+        // console.log(typeof baconGoodness);
+        // console.log(baconGoodness);
 
-        const itemImgText = document.createElement('div');
-        itemImgText.className = 'about-item__row';
+        // TODO: forEach и/или map()
+        // baconGoodness.forEach(i => {
+        // debugger;
+        baconGoodness.forEach(str => {
+          // TODO: отрисовка в отдельной функции
+          const item = document.createElement('div');
+          item.className = 'about__item about-item';
 
-        // getPicsumImages();
-        // const itemImgList = 'https://picsum.photos/v2/list';
-        // console.log(typeof itemImgList);
+          const itemTitle = document.createElement('h3');
+          itemTitle.className = 'about-item__title';
+          itemTitle.innerHTML = 'Some lorem title';
 
-        const itemImg = document.createElement('img');
-        itemImg.className = 'about-item__image';
-        // TODO: https://picsum.photos/v2/list
-        // TODO: массив объектов [{ ... },{ ... }, ...]
-        // TODO: https://picsum.photos/id/ ... id(key)->value ... /140/140
-        itemImg.src = 'https://picsum.photos/140/140?random=' + i;
+          const itemImgText = document.createElement('div');
+          itemImgText.className = 'about-item__row';
 
-        const itemDesc = document.createElement('div');
-        itemDesc.className = 'about-item__desc content';
+          // getPicsumImages();
+          // const itemImgList = 'https://picsum.photos/v2/list';
+          // console.log(typeof itemImgList);
 
-        const p = document.createElement('p');
-        p.innerHTML = baconGoodness[i];
+          const itemImg = document.createElement('img');
+          itemImg.className = 'about-item__image';
+          // TODO: https://picsum.photos/v2/list
+          // TODO: массив объектов [{ ... },{ ... }, ...]
+          // TODO: https://picsum.photos/id/ ... id(key)->value ... /140/140
+          itemImg.src = images.pop();
 
-        item.appendChild(p);
+          const itemDesc = document.createElement('div');
+          itemDesc.className = 'about-item__desc content';
 
-        item.appendChild(itemTitle);
-        item.appendChild(itemImgText);
-        itemImgText.appendChild(itemImg);
-        itemImgText.appendChild(itemDesc);
-        itemDesc.appendChild(p);
-        baconIpsumOutput.appendChild(item);
+          const p = document.createElement('p');
+          p.innerHTML = str;
+
+          item.appendChild(p);
+
+          item.appendChild(itemTitle);
+          item.appendChild(itemImgText);
+          itemImgText.appendChild(itemImg);
+          itemImgText.appendChild(itemDesc);
+          itemDesc.appendChild(p);
+          baconIpsumOutput.appendChild(item);
+        });
+      },
+      function(codeError) {
+        console.error(`Error ${codeError}`);
       }
-      // });
-    },
-    function(codeError) {
-      console.error(`Error ${codeError}`);
-    }
-  );
+    );
+  });
 };
 
-document.addEventListener('DOMContentLoaded', getData);
+getData();
+
+// document.addEventListener('DOMContentLoaded', getData);
