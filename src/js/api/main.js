@@ -27,6 +27,32 @@ const getData = () => {
       }
     );
   });
+
+  //   getJSON('https://picsum.photos/v2/list', { limit: countItems }, imageList => {
+  //     const images = imageList
+  //       .map(item => `https://picsum.photos/id/${item.id}/140/140`)
+  //       .then(function(datums) {
+  //         console.log(datums);
+  //       })
+  //       .catch(function(err) {
+  //         console.log(err.statusText);
+  //       });
+
+  //     getJSON('https://baconipsum.com/api/', {
+  //       type: 'meat-and-filler',
+  //       paras: countItems,
+  //       'start-with-lorem': 5,
+  //       format: 'json'
+  //     })
+  //       .then(function(datums) {
+  //         console.log(datums);
+  //         rendering(output, strings, images);
+  //       })
+  //       .catch(function(err) {
+  //         console.log(err.statusText);
+  //       });
+  //   });
+  // };
 };
 
 getData();
