@@ -33,26 +33,25 @@ const getData = () => {
   //       .map(item => `https://picsum.photos/id/${item.id}/140/140`)
   //       .then(function(datums) {
   //         console.log(datums);
-  //       })
-  //       .catch(function(err) {
-  //         console.log(err.statusText);
-  //       });
-
-  //     getJSON('https://baconipsum.com/api/', {
-  //       type: 'meat-and-filler',
-  //       paras: countItems,
-  //       'start-with-lorem': 5,
-  //       format: 'json'
-  //     })
-  //       .then(function(datums) {
-  //         console.log(datums);
-  //         rendering(output, strings, images);
+  //         return images;
   //       })
   //       .catch(function(err) {
   //         console.log(err.statusText);
   //       });
   //   });
-  // };
+
+  //   getJSON('https://baconipsum.com/api/', {
+  //     type: 'meat-and-filler',
+  //     paras: countItems,
+  //     'start-with-lorem': 5,
+  //     format: 'json'
+  //   })
+  //     .then(function() {
+  //       rendering(output, strings, images);
+  //     })
+  //     .catch(function(err) {
+  //       console.log(err.statusText);
+  //     });
 };
 
 getData();

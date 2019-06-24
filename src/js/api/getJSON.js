@@ -24,8 +24,8 @@ var getJSON = function(url, params, callbackSuccess, callbackError) {
 //     xhr.open('GET', `${url}?${stringParams(params)}`, true);
 //     xhr.responseType = 'json';
 //     xhr.onload = () => {
-//       // if (status >= 200 && this.status < 300) {
-//       if (status === 200) {
+//       if (status >= 200 && this.status < 300) {
+//         // if (status === 200) {
 //         resolve(xhr.response);
 //       } else {
 //         reject({
