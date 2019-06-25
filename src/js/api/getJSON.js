@@ -12,7 +12,7 @@ var getJSON = function(url, params) {
       if (xhr.status >= 200 && xhr.status < 300) {
         // if (status === 200) {
         resolve(xhr.response);
-        // console.log(xhr.response);
+        console.log(xhr.response);
       } else {
         reject({
           status: xhr.status,

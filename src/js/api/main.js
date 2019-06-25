@@ -1,46 +1,39 @@
 const getJSON = require('./getJSON.js');
-const rendering = require('./rendering.js');
+// const rendering = require('./rendering.js');
+// const output = document.querySelector('.random-content');
 
-const countItems = 6;
+// getData(Number) : Promise<Array[{src: String, text: String}]>
+const getData = countItems => {
+  let images;
 
-const getData = () => {
-  // let output = document.querySelector('.random-content');
-  // let images = []
-  // let strings = []
-  //   return getJSON('https://picsum.photos/v2/list', { limit: countItems })
-  //   .then(res => {
-  //     // res, map
-  //     images = imageList.map(
-  //       item => `https://picsum.photos/id/${item.id}/140/140`
-  //     );
-  //     return getJSON('https://baconipsum.com/api/');
-  //   }).then(string => {
-  //       strings = ...;
+  return getJSON('https://picsum.photos/v2/list', { limit: countItems })
+    .then(imageList => {
+      images = imageList.map(
+        item => `https://picsum.photos/id/${item.id}/140/140`
+      );
 
-  //   })
-  //   .catch();
-
-  getJSON('https://picsum.photos/v2/list', { limit: countItems }, imageList => {
-    const images = imageList.map(
-      item => `https://picsum.photos/id/${item.id}/140/140`
-    );
-
-    getJSON(
-      'https://baconipsum.com/api/',
-      {
+      return getJSON('https://baconipsum.com/api/', {
         type: 'meat-and-filler',
         paras: countItems,
         'start-with-lorem': 5,
         format: 'json'
-      },
-      function(strings) {
-        rendering(output, strings, images);
-      },
-      function(codeError) {
-        console.error(`Error ${codeError}`);
-      }
-    );
-  });
+      });
+    })
+    .then(strings => {
+      data = { strings, images };
+      console.table(data);
+      console.log(typeof data);
+      console.log(typeof data.images);
+      console.log(typeof data.strings);
+
+      return data;
+    })
+    .catch(err => {
+      console.log(err.statusText);
+    });
 };
 
-getData();
+getData(4);
+// rendering(output, data);
+// console.table(images);
+// console.table(strings);
