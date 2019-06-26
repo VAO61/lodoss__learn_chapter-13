@@ -1,32 +1,38 @@
-strings = ['a', 'b', 'c'];
-images = ['1', '2', '3'];
+strings = ['desc-1', 'desc-2', 'desc-3'];
+images = ['url-1', 'url-2', 'url-3'];
+let data = [];
 
-data = { strings, images };
-// console.log(data);
-// console.log(data.strings[0]);
-// console.log(data.images[0]);
-
-strings.forEach(item => {
-  let object = {};
-
-  object = {
-    desc: item
-  };
-  // console.log(object);
-  // return object;
-  images.forEach(item => {
-    let objImg = {
-      image: item
-    };
-    let objectItem = Object.assign(object, objImg);
-    console.log(object);
-    return objectItem;
-  });
+strings.map((item, index) => {
+  var obj = new Object();
+  obj.desc = item;
+  obj.image = images[index];
+  // console.log(obj);
+  data.push(obj);
+  // return data;
 });
+console.log(data);
 
-// Objs = data.map(item => {
-//   url: data.images,
-//   desc: data.strings
-// })
+// data = { strings, images };
+// data = { desc: strings[0], image: images[0] };
 
-// console.log(Objs);
+// -------
+// array = [];
+// strings.forEach(i => {
+//   images.forEach(j => {
+//     data = { desc: i, image: j };
+//   });
+//   array.push(data);
+// });
+// console.log(array); // [ { desc: 'desc-1', image: 'url-3' }, { desc: 'desc-2', image: 'url-3' }...
+// ------
+
+// var newObj = data.reduce((strings, images) => {
+//   return strings.concat(images);
+// });
+
+// console.log(newObj);
+
+// var flattened = [[0, 1], [2, 3], [4, 5]].reduce(function(a, b) {
+//   return a.concat(b);
+// });
+// console.log(flattened);
