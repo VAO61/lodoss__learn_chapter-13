@@ -33,4 +33,4 @@ const rendering = (outputContainer, inputContent) => {
   });
 };
 
-module.exports = rendering;
+export default rendering;

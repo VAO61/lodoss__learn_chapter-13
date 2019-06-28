@@ -1,11 +1,10 @@
-const getJSON = require('./getJSON.js');
-const rendering = require('./rendering.js');
+import getJSON from './getJSON.js';
+import rendering from './rendering.js';
+
 const output = document.querySelector('.random-content');
 
 // getData(Number) : Promise<Array[{src: String, text: String}]>
 const getData = countItems => {
-  // let images;
-
   getJSON('https://picsum.photos/v2/list', { limit: countItems })
     .then(imageList => {
       images = imageList.map(
