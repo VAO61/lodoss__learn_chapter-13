@@ -3,7 +3,6 @@ import rendering from './rendering.js';
 
 const output = document.querySelector('.random-content');
 
-// getData(Number) : Promise<Array[{src: String, text: String}]>
 const getData = async countItems => {
   try {
     const imageList = await getJSON('https://picsum.photos/v2/list', {
@@ -34,4 +33,4 @@ const getData = async countItems => {
   }
 };
 
-getData(100);
+getData(5);
