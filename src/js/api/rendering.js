@@ -1,7 +1,7 @@
-const rendering = (outputContainer, strList, imageList) => {
+const rendering = (outputContainer, inputContent) => {
   outputContainer.innerHTML = '';
 
-  strList.forEach(str => {
+  inputContent.forEach(inputContent => {
     const item = document.createElement('div');
     item.className = 'about__item about-item';
 
@@ -14,13 +14,13 @@ const rendering = (outputContainer, strList, imageList) => {
 
     const itemImg = document.createElement('img');
     itemImg.className = 'about-item__image';
-    itemImg.src = imageList.pop();
+    itemImg.src = inputContent.image;
 
     const itemText = document.createElement('div');
     itemText.className = 'about-item__desc content';
 
     const p = document.createElement('p');
-    p.innerHTML = str;
+    p.innerHTML = inputContent.desc;
 
     item.appendChild(p);
 
